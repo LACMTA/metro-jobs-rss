@@ -17,8 +17,8 @@ jobs:
                 ref: ${{ github.head_ref }}
 
             - name: Download file
-              run: |
-                curl https://jobs.metro.net/jobsearchRSS.aspx -H 'Accept: text/html' -o jobsearchRSS.xml -v -L
+              run: wget https://jobs.metro.net/jobsearchRSS.aspx -O jobsearchRSS.xml
+                # curl https://jobs.metro.net/jobsearchRSS.aspx -H 'Accept: text/html' -o jobsearchRSS.xml -v -L
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
