@@ -18,7 +18,7 @@ jobs:
 
             - name: Download file
               run: |
-                curl https://jobs.metro.net/jobsearchRSS.aspx -o jobsearchRSS.xml -k
+                curl https://jobs.metro.net/jobsearchRSS.aspx -o docs/jobsearchRSS.xml -k
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
