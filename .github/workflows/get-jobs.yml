@@ -17,7 +17,9 @@ jobs:
                 ref: ${{ github.head_ref }}
 
             - name: Download file
-              run: wget https://jobs.metro.net/jobsearchRSS.aspx -O jobsearchRSS.xml
+              run: |
+                sudo apt-get install ca-certificates
+                wget https://jobs.metro.net/jobsearchRSS.aspx -O jobsearchRSS.xml
                 # curl https://jobs.metro.net/jobsearchRSS.aspx -H 'Accept: text/html' -o jobsearchRSS.xml -v -L
 
             - name: Commit changes
