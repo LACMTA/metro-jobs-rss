@@ -1,0 +1,26 @@
+name: Download and Commit File
+
+on:
+    schedule:
+        - cron: '0 0 * * *'
+    workflow_dispatch:
+        
+
+jobs:
+    download-commit:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with: 
+                ref: ${{ github.head_ref }}
+
+            - name: Download file
+              run: |
+                curl -O https://jobs.metro.net/jobsearchRSS.aspx
+
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                commit_message: '[Auto] download jobs.metro.net rss'
