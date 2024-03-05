@@ -4,7 +4,7 @@ on:
     schedule:
         - cron: '0 0 * * *'
     workflow_dispatch:
-        
+
 
 jobs:
     download-commit:
@@ -18,7 +18,7 @@ jobs:
 
             - name: Download file
               run: |
-                curl -O https://jobs.metro.net/jobsearchRSS.aspx
+                curl https://jobs.metro.net/jobsearchRSS.aspx -o jobsearchRSS.xml -v
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
