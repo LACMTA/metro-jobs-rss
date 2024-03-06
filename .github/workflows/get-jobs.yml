@@ -27,7 +27,7 @@ jobs:
 
             - name: Replace https
               run: |
-                sed -i 's/http:/https:/g' docs/jobsearchRSS.xml
+                sed -i 's/https:/http:/g' docs/jobsearchRSS.xml
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
