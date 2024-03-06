@@ -16,9 +16,18 @@ jobs:
               with: 
                 ref: ${{ github.head_ref }}
 
+            - name: Setup Python
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.x'
+
             - name: Download file
               run: |
                 curl https://jobs.metro.net/jobsearchRSS.aspx -o docs/jobsearchRSS.xml -k
+
+            - name: Replace https
+              run: |
+                python3 ./replace_https.py docs/jobsearchRSS.xml
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
