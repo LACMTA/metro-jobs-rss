@@ -27,7 +27,7 @@ jobs:
 
             - name: Replace https
               run: |
-                python3 ./replace_https.py docs/jobsearchRSS.xml
+                python3 replace_https.py docs/jobsearchRSS.xml
 
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
