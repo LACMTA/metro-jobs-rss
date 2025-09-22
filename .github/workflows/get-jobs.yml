@@ -1,8 +1,6 @@
 name: Download and Commit File
 
 on:
-    schedule:
-        - cron: '0 0 * * *'
     workflow_dispatch:
 
 
